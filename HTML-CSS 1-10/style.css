@@ -1,0 +1,116 @@
+* {
+  margin: 0;
+}
+
+div {
+  width: 70vw;
+  margin: auto;
+}
+
+.content {
+  margin-top: 2%;
+}
+
+div {
+  width: 70vw;
+  margin: auto;
+}
+
+h1 {
+  color: lightblue;
+  border: 3px solid lightpink;
+  top: 20px;;
+}
+
+h2 {
+  color: lightskyblue;
+  border: 1px dashed lightpink;
+  margin-bottom: 30px;
+}
+
+p {
+  border: 1px solid lightpink;
+  padding: 10px;
+}
+
+img {
+  border: 1px solid lightpink;
+  margin: 10px;
+}
+
+#paragraf{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.huruf{
+  font-size: 2rem;
+}
+
+.warna{
+  background-color: lightskyblue;
+}
+
+.bentuk{
+  font-style: italic;
+}
+
+.huruf-tebal{
+  font-style: initial;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  font-family: Arial, Helvetica, sans-serif;
+  background: lightpink;
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+}
+
+ul li {
+  color: lightskyblue;
+  background: pink;
+  display: inline-block;
+  border: 1px lightblue;
+  padding: 10px;
+  position: relative;
+  text-decoration: none;
+}
+
+ul li a {
+  color: lightskyblue;
+}
+
+ul li:hover{
+  background: rgb(207, 230, 245);
+  cursor: pointer;
+}
+
+ul li ul {
+  background: lightskyblue;
+  visibility: hidden;
+  position: absolute;
+  margin-top: 0.5rem;
+  left: 0;
+  display: none;
+}
+
+ul li:hover > ul,
+ul li ul:hover {
+  visibility: visible;
+  display: block;
+}
+
+ul li ul li {
+  clear: both;
+  width: 100%;
+}
+@media only screen and ( max-width: 500px ) {
+  body {
+    background: darksalmon;
+    font-family: 'Courier New', Courier, monospace;
+  }
+}
