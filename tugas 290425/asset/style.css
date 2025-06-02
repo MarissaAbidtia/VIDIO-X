@@ -1,0 +1,84 @@
+:root {
+    --primary-color: #e91e63;     /* Pink tua */
+    --secondary-color: #f06292;   /* Pink muda */
+    --text-color: #880e4f;        /* Pink gelap untuk teks */
+    --bg-color: #fff0f6;          /* Latar belakang pink sangat muda */
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.navbar {
+    background-color: var(--primary-color);
+    padding: 1rem 0;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+}
+
+.card {
+    transition: transform 0.3s ease;
+    margin-bottom: 1rem;
+    background-color: #ffe4ec; /* Tambahan: pink pastel di card */
+    border: none;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(233, 30, 99, 0.2);
+}
+
+.product-img {
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #c2185b; /* Lebih gelap saat hover */
+}
+
+.cart-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: var(--secondary-color);
+    color: white;
+    border-radius: 50%;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+}
+
+/* Styling untuk modal keranjang */
+.cart-item-img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.cart-items {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.cart-item {
+    padding: 10px;
+    border-bottom: 1px solid #f8bbd0; /* Pink pastel */
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}

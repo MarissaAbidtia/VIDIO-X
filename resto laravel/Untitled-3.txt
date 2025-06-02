@@ -1,0 +1,4 @@
+
+4. Coba akses database lagi untuk memverifikasi koneksi sudah berhasil.
+
+Pastikan tidak ada aplikasi lain yang menggunakan port 3006 sebelum mengubah konfigurasi.

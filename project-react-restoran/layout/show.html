@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHOW - Belajar Axios</title>
+    <!-- Tambahkan Axios dari CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Belajar AXIOS - SHOW</h1>
+    
+    <div class="btn-container">
+        <a href="index.html" class="get-btn">HOME</a>
+        <a href="get.html" class="get-btn">GET</a>
+        <a href="show.html" class="show-btn">SHOW</a>
+        <a href="post.html" class="post-btn">POST</a>
+        <a href="delete.html" class="delete-btn">DELETE</a>
+        <a href="update.html" class="update-btn">UPDATE</a>
+    </div>
+
+    <hr>
+
+    <div class="form-container" id="showForm">
+        <h3>Tampilkan Data Pelanggan</h3>
+        <div class="form-group">
+            <label for="showId">ID Pelanggan:</label>
+            <input type="text" id="showId" required>
+        </div>
+        <button class="submit-btn" id="submitShow">Tampilkan</button>
+    </div>
+
+    <table id="dataTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Pelanggan</th>
+                <th>Alamat</th>
+                <th>telp</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody">
+            <!-- Data akan ditampilkan di sini -->
+        </tbody>
+    </table>
+
+    <script src="script.js"></script>
+    <script>
+        // Event listener untuk submit form SHOW
+        document.getElementById('submitShow').addEventListener('click', function() {
+            const id = document.getElementById('showId').value;
+            
+            if (!id) {
+                alert('ID harus diisi!');
+                return;
+            }
+            
+            // Dalam kasus nyata, gunakan:
+            // axios.get(`${apiUrl}/${id}`)
+            //     .then(response => {
+            //         displayData([response.data]);
+            //     })
+            //     .catch(error => {
+            //         console.error('Error fetching data:', error);
+            //         alert('Terjadi kesalahan saat mengambil data');
+            //     });
+            
+            // Simulasi pencarian data
+            const filteredData = dummyData.filter(user => user.id == id);
+            if (filteredData.length > 0) {
+                displayData(filteredData);
+            } else {
+                alert('Data dengan ID tersebut tidak ditemukan');
+            }
+            
+            // Reset form
+            document.getElementById('showId').value = '';
+        });
+    </script>
+</body>
+</html>

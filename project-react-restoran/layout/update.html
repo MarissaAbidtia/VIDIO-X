@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPDATE - Belajar Axios</title>
+    <!-- Tambahkan Axios dari CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Belajar AXIOS - UPDATE</h1>
+    
+    <div class="btn-container">
+        <a href="index.html" class="get-btn">HOME</a>
+        <a href="get.html" class="get-btn">GET</a>
+        <a href="show.html" class="show-btn">SHOW</a>
+        <a href="post.html" class="post-btn">POST</a>
+        <a href="delete.html" class="delete-btn">DELETE</a>
+        <a href="update.html" class="update-btn">UPDATE</a>
+    </div>
+
+    <hr>
+
+    <div class="form-container" id="updateForm">
+        <h3>Update Data Pelanggan</h3>
+        <div class="form-group">
+            <label for="updateId">ID Pelanggan:</label>
+            <input type="text" id="updateId" required>
+        </div>
+        <div class="form-group">
+            <label for="updateNama">Nama Pelanggan:</label>
+            <input type="text" id="updateNama" required>
+        </div>
+        <div class="form-group">
+            <label for="updateAlamat">Alamat:</label>
+            <input type="text" id="updateAlamat" required>
+        </div>
+        <div class="form-group">
+            <label for="updateTelp">Telepon:</label>
+            <input type="text" id="updateTelp" required>
+        </div>
+        <button class="submit-btn" id="submitUpdate">Update</button>
+    </div>
+
+    <div id="result" class="content"></div>
+
+    <script src="script.js"></script>
+    <script>
+        // Event listener untuk submit form UPDATE
+        document.getElementById('submitUpdate').addEventListener('click', function() {
+            const id = document.getElementById('updateId').value;
+            const nama = document.getElementById('updateNama').value;
+            const alamat = document.getElementById('updateAlamat').value;
+            const telp = document.getElementById('updateTelp').value;
+            
+            if (!id || !nama || !alamat || !telp) {
+                alert('Semua field harus diisi!');
+                return;
+            }
+            
+            const updatedData = {
+                id: id,
+                name: nama,
+                address: {
+                    street: alamat.split(',')[0] || alamat,
+                    city: alamat.split(',')[1] || ''
+                },
+                phone: telp
+            };
+            
+            // Dalam kasus nyata, gunakan:
+            // axios.put(`${apiUrl}/${id}`, updatedData)
+            //     .then(response => {
+            //         document.getElementById('result').innerHTML = 
+            //             '<div class="alert alert-success">Data berhasil diupdate!</div>' +
+            //             '<pre>' + JSON.stringify(response.data, null, 2) + '</pre>';
+            //     })
+            //     .catch(error => {
+            //         console.error('Error updating data:', error);
+            //         document.getElementById('result').innerHTML = 
+            //             '<div class="alert alert-danger">Terjadi kesalahan saat mengupdate data</div>';
+            //     });
+            
+            // Simulasi update data
+            document.getElementById('result').innerHTML = 
+                '<div style="padding: 10px; background-color: #d4edda; color: #155724; border-radius: 5px; margin-top: 20px;">Data berhasil diupdate! (Simulasi)</div>' +
+                '<pre>' + JSON.stringify(updatedData, null, 2) + '</pre>';
+            
+            // Reset form
+            document.getElementById('updateId').value = '';
+            document.getElementById('updateNama').value = '';
+            document.getElementById('updateAlamat').value = '';
+            document.getElementById('updateTelp').value = '';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POST - Belajar Axios</title>
+    <!-- Tambahkan Axios dari CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Belajar AXIOS - POST</h1>
+    
+    <div class="btn-container">
+        <a href="index.html" class="get-btn">HOME</a>
+        <a href="get.html" class="get-btn">GET</a>
+        <a href="show.html" class="show-btn">SHOW</a>
+        <a href="post.html" class="post-btn">POST</a>
+        <a href="delete.html" class="delete-btn">DELETE</a>
+        <a href="update.html" class="update-btn">UPDATE</a>
+    </div>
+
+    <hr>
+
+    <div class="form-container" id="postForm">
+        <h3>Tambah Pelanggan Baru</h3>
+        <div class="form-group">
+            <label for="namaPelanggan">Nama Pelanggan:</label>
+            <input type="text" id="namaPelanggan" required>
+        </div>
+        <div class="form-group">
+            <label for="alamatPelanggan">Alamat:</label>
+            <input type="text" id="alamatPelanggan" required>
+        </div>
+        <div class="form-group">
+            <label for="telpPelanggan">Telepon:</label>
+            <input type="text" id="telpPelanggan" required>
+        </div>
+        <button class="submit-btn" id="submitPost">Simpan</button>
+    </div>
+
+    <div id="result" class="content"></div>
+
+    <script src="script.js"></script>
+    <script>
+        // Event listener untuk submit form POST
+        document.getElementById('submitPost').addEventListener('click', function() {
+            const nama = document.getElementById('namaPelanggan').value;
+            const alamat = document.getElementById('alamatPelanggan').value;
+            const telp = document.getElementById('telpPelanggan').value;
+            
+            if (!nama || !alamat || !telp) {
+                alert('Semua field harus diisi!');
+                return;
+            }
+            
+            const newData = {
+                name: nama,
+                address: {
+                    street: alamat.split(',')[0] || alamat,
+                    city: alamat.split(',')[1] || ''
+                },
+                phone: telp
+            };
+            
+            // Dalam kasus nyata, gunakan:
+            // axios.post(apiUrl, newData)
+            //     .then(response => {
+            //         document.getElementById('result').innerHTML = 
+            //             '<div class="alert alert-success">Data berhasil ditambahkan!</div>' +
+            //             '<pre>' + JSON.stringify(response.data, null, 2) + '</pre>';
+            //     })
+            //     .catch(error => {
+            //         console.error('Error adding data:', error);
+            //         document.getElementById('result').innerHTML = 
+            //             '<div class="alert alert-danger">Terjadi kesalahan saat menambahkan data</div>';
+            //     });
+            
+            // Simulasi penambahan data
+            document.getElementById('result').innerHTML = 
+                '<div style="padding: 10px; background-color: #d4edda; color: #155724; border-radius: 5px; margin-top: 20px;">Data berhasil ditambahkan! (Simulasi)</div>' +
+                '<pre>' + JSON.stringify(newData, null, 2) + '</pre>';
+            
+            // Reset form
+            document.getElementById('namaPelanggan').value = '';
+            document.getElementById('alamatPelanggan').value = '';
+            document.getElementById('telpPelanggan').value = '';
+        });
+    </script>
+</body>
+</html>
